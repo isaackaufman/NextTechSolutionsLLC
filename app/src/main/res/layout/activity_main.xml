@@ -15,18 +15,27 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:id="@+id/top_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/logo1_full_with_llc_1333"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="50dp"
             android:id="@+id/browse_services_button"
             android:onClick="onGoButtonClicked"
             android:text="Browse Our Services"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:id="@+id/schedule_button"
             android:onClick="onGoButtonClicked"
@@ -34,7 +43,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:id="@+id/quote_button"
             android:onClick="onGoButtonClicked"
@@ -42,10 +51,11 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="0dp"
             android:layout_gravity="center"
             android:id="@+id/tools_button"
             android:onClick="onGoButtonClicked"
             android:text="Discover Helpful Tools"/>
     </LinearLayout>
+
 </RelativeLayout>

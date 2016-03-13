@@ -30,7 +30,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="50dp"
             android:id="@+id/browse_services_button"
-            android:onClick="onGoButtonClicked"
+            android:onClick="onBrowseButtonClicked"
             android:text="Browse Our Services"/>
         <Button
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:id="@+id/schedule_button"
-            android:onClick="onGoButtonClicked"
+            android:onClick="onScheduleButtonClicked"
             android:text="Schedule an Appointment"/>
         <Button
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:id="@+id/quote_button"
-            android:onClick="onGoButtonClicked"
+            android:onClick="onQuoteButtonClicked"
             android:text="Get a Quote"/>
         <Button
             android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
             android:layout_marginBottom="0dp"
             android:layout_gravity="center"
             android:id="@+id/tools_button"
-            android:onClick="onGoButtonClicked"
+            android:onClick="onDiscoverButtonClicked"
             android:text="Discover Helpful Tools"/>
     </LinearLayout>
 

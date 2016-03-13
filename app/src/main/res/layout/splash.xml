@@ -10,8 +10,8 @@
     tools:context=".Splash">
 
     <ImageView
-        android:layout_width="300px"
-        android:layout_height="300px"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo1_300x300"

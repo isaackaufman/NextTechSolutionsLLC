@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="5dp"
+    android:background="#fff"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="5dp"
@@ -26,32 +27,41 @@
             android:src="@drawable/logo1_full_with_llc_1333"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="#0064c1"
+            android:textColor="#fff"
             android:layout_gravity="center"
             android:layout_marginBottom="50dp"
             android:id="@+id/browse_services_button"
             android:onClick="onBrowseButtonClicked"
-            android:text="Browse Our Services"/>
+            android:text="Browse Our Services"
+            />
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="#0064c1"
+            android:textColor="#fff"
             android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:id="@+id/schedule_button"
             android:onClick="onScheduleButtonClicked"
             android:text="Schedule an Appointment"/>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="#0064c1"
+            android:textColor="#fff"
             android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:id="@+id/quote_button"
             android:onClick="onQuoteButtonClicked"
             android:text="Get a Quote"/>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="#0064c1"
+            android:textColor="#fff"
             android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:id="@+id/tools_button"

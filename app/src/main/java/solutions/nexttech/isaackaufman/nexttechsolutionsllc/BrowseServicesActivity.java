@@ -13,8 +13,6 @@ import java.util.ArrayList;
  */
 public class BrowseServicesActivity extends Activity {
 
-    private String html;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,44 +27,53 @@ public class BrowseServicesActivity extends Activity {
             @Override
             public void processFinish (String output)
             {
-                // TODO process html into readable and formatted entries
-                //for ()
-                //scrollView.addView();
+                ArrayList<ArrayList<String>> services = parseServices(output);
+                for (int i = 0; i < services.get(0).size(); i++)
+                {
+                    // Add textViews for each service
+                }
+                System.out.println(services.get(0).get(0) + ": " + services.get(1).get(0));
             }
 
         }).execute("http://nexttech.solutions/home.html");
+
     }
 
     private ArrayList<ArrayList<String>> parseServices (String html)
     {
         ArrayList<String> serviceNames = new ArrayList<String>();
         ArrayList<String> serviceDescriptions = new ArrayList<String>();
-        String service = "";
         String name = "";
-        int startIndex;
-        int endIndex;
+        int nameStartIndex, nameEndIndex, ulStartIndex, ulEndIndex, liStartIndex, liEndIndex;
 
         // keep track of where we are in the html document
         int curPos = 0;
-        while ((startIndex = html.indexOf("<h2>", curPos)) != -1)
+
+        while ((nameStartIndex = html.indexOf("<h2>", curPos)) != -1)
         {
-            endIndex = html.indexOf("</h2>", startIndex);
+            nameEndIndex = html.indexOf("</h2>", nameStartIndex);
 
             // grab service name and trim off <h2> and </h2>
-            name = html.substring(startIndex + 4, endIndex);
+            name = html.substring(nameStartIndex + 4, nameEndIndex);
             serviceNames.add(name);
 
             // grab service description
-            // TODO figure out the best way to get text from between <ul> tags
-
-
-
+            ulStartIndex = html.indexOf("<ul", nameEndIndex);
+            ulEndIndex = html.indexOf("</ul>", ulStartIndex);
+            liEndIndex = ulStartIndex;
+            StringBuilder service = new StringBuilder();
+            while ((liStartIndex = html.indexOf("<li>", liEndIndex)) != -1 && liStartIndex < ulEndIndex)
+            {
+                liEndIndex = html.indexOf("</li>", liStartIndex);
+                service.append(html.substring(liStartIndex + 4, liEndIndex) + "\n");
+            }
+            serviceDescriptions.add(service.toString());
+            curPos = ulEndIndex;
         }
-
-        ArrayList<ArrayList<String>> services = new ArrayList<ArrayList<String>>(2);
-        services.add(serviceNames);
-        services.add(serviceDescriptions);
-        return services;
+        ArrayList<ArrayList<String>> serv = new ArrayList<ArrayList<String>>(2);
+        serv.add(serviceNames);
+        serv.add(serviceDescriptions);
+        return serv;
     }
 
 

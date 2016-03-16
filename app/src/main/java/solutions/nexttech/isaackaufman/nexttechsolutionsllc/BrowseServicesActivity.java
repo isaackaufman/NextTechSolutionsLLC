@@ -37,10 +37,12 @@ public class BrowseServicesActivity extends Activity {
         }).execute("http://nexttech.solutions/home.html");
     }
 
-    private ArrayList<String> parseServices (String html)
+    private ArrayList<ArrayList<String>> parseServices (String html)
     {
-        ArrayList<String> services = new ArrayList<String>();
+        ArrayList<String> serviceNames = new ArrayList<String>();
+        ArrayList<String> serviceDescriptions = new ArrayList<String>();
         String service = "";
+        String name = "";
         int startIndex;
         int endIndex;
 
@@ -48,13 +50,22 @@ public class BrowseServicesActivity extends Activity {
         int curPos = 0;
         while ((startIndex = html.indexOf("<h2>", curPos)) != -1)
         {
-            endIndex = html.indexOf("</h2", startIndex);
-            curPos = endIndex;
+            endIndex = html.indexOf("</h2>", startIndex);
 
-            // trim off <h2> and </h2>
-            service = html.substring(startIndex + 4, endIndex);
+            // grab service name and trim off <h2> and </h2>
+            name = html.substring(startIndex + 4, endIndex);
+            serviceNames.add(name);
+
+            // grab service description
+            // TODO figure out the best way to get text from between <ul> tags
+
+
+
         }
 
+        ArrayList<ArrayList<String>> services = new ArrayList<ArrayList<String>>(2);
+        services.add(serviceNames);
+        services.add(serviceDescriptions);
         return services;
     }
 

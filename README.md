@@ -8,6 +8,6 @@ TODO:
  - [ ] Outline of Services
      - [x] Get services from HTTP server
      - [ ] Display them
- - [] Third-Party Tools List
+ - [ ] Third-Party Tools List
 + Design
  - [ ] Everything.

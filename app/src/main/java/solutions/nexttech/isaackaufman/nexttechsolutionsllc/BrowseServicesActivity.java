@@ -1,17 +1,32 @@
 package solutions.nexttech.isaackaufman.nexttechsolutionsllc;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Service;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Sweg on 3/13/2016.
  */
 public class BrowseServicesActivity extends Activity {
+
+    public ArrayList<ArrayList<String>> services;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,62 +35,48 @@ public class BrowseServicesActivity extends Activity {
         setContentView(R.layout.activity_browse_services);
 
         final ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
-        ArrayList<TextView> tvList = new ArrayList<TextView>();
+        ViewGroup linLay = (ViewGroup) findViewById(R.id.linLay);
 
+        try {
+            services = new GetServices().execute("http://nexttech.solutions/home.html").get();
 
-        GetServices servicesTask = (GetServices) new GetServices(new GetServices.AsyncResponse(){
-            @Override
-            public void processFinish (String output)
-            {
-                ArrayList<ArrayList<String>> services = parseServices(output);
-                for (int i = 0; i < services.get(0).size(); i++)
-                {
-                    // Add textViews for each service
-                }
-                System.out.println(services.get(0).get(0) + ": " + services.get(1).get(0));
-            }
-
-        }).execute("http://nexttech.solutions/home.html");
-
-    }
-
-    private ArrayList<ArrayList<String>> parseServices (String html)
-    {
-        ArrayList<String> serviceNames = new ArrayList<String>();
-        ArrayList<String> serviceDescriptions = new ArrayList<String>();
-        String name = "";
-        int nameStartIndex, nameEndIndex, ulStartIndex, ulEndIndex, liStartIndex, liEndIndex;
-
-        // keep track of where we are in the html document
-        int curPos = 0;
-
-        while ((nameStartIndex = html.indexOf("<h2>", curPos)) != -1)
-        {
-            nameEndIndex = html.indexOf("</h2>", nameStartIndex);
-
-            // grab service name and trim off <h2> and </h2>
-            name = html.substring(nameStartIndex + 4, nameEndIndex);
-            serviceNames.add(name);
-
-            // grab service description
-            ulStartIndex = html.indexOf("<ul", nameEndIndex);
-            ulEndIndex = html.indexOf("</ul>", ulStartIndex);
-            liEndIndex = ulStartIndex;
-            StringBuilder service = new StringBuilder();
-            while ((liStartIndex = html.indexOf("<li>", liEndIndex)) != -1 && liStartIndex < ulEndIndex)
-            {
-                liEndIndex = html.indexOf("</li>", liStartIndex);
-                service.append(html.substring(liStartIndex + 4, liEndIndex) + "\n");
-            }
-            serviceDescriptions.add(service.toString());
-            curPos = ulEndIndex;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
-        ArrayList<ArrayList<String>> serv = new ArrayList<ArrayList<String>>(2);
-        serv.add(serviceNames);
-        serv.add(serviceDescriptions);
-        return serv;
+
+        float scale = getResources().getDisplayMetrics().density;
+        int dpImgHeight = (int) (75 * scale + 0.5f);
+        int dpHeight = (int) (50 * scale + 0.5f);
+        int dpWidth = (int) (300 * scale + 0.5f);
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dpWidth, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(0, 0, 0, dpHeight / 2);
+        lp.gravity = Gravity.CENTER;
+
+        for (int i = 0; i < services.get(0).size(); i++)
+        {
+            final String name = services.get(0).get(i);
+            final String desc = services.get(1).get(i);
+            final Button btn = new Button(this);
+
+            btn.setText(name);
+            btn.setTextColor(0xFFFFFFFF);
+            linLay.addView(btn);
+            btn.setLayoutParams(lp);
+            btn.setBackgroundColor(0xFF0064c1);
+
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getBaseContext(), DisplayServiceActivity.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("desc", desc);
+                    startActivity(intent);
+                }
+            });
+        }
+
     }
-
-
-
 }

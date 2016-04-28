@@ -7,12 +7,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
-        android:layout_gravity="center_horizontal" >
+        android:layout_gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/htmlText" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:id="@+id/linLay">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:id="@+id/top_logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/logo1_full_with_llc_1333"/>
+
+
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

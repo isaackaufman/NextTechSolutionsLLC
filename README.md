@@ -5,9 +5,10 @@ TODO:
 + Features
  - [x] Appointment Scheduling
  - [ ] Automated Quote Generation
- - [ ] Outline of Services
+ - [x] Manual Quote Generation
+ - [x] Outline of Services
      - [x] Get services from HTTP server
      - [x] Display them
- - [ ] Third-Party Tools List
+ - [x] Third-Party Tools List
 + Design
  - [ ] Everything.

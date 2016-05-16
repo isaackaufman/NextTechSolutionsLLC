@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:background="#fff"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="5dp"
+    tools:context="solutions.nexttech.isaackaufman.nexttechsolutionsllc.ContactActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:id="@+id/top_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/logo1_full_with_llc_1333"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="#0064c1"
+        android:textColor="#fff"
+        android:layout_marginBottom="50dp"
+        android:layout_gravity="center"
+        android:id="@+id/call_button"
+        android:onClick="onCallButtonClicked"
+        android:text="Call"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="#0064c1"
+        android:textColor="#fff"
+        android:layout_marginBottom="50dp"
+        android:layout_gravity="center"
+        android:id="@+id/email_button"
+        android:onClick="onEmailButtonClicked"
+        android:text="Email"/>
+
+</LinearLayout>

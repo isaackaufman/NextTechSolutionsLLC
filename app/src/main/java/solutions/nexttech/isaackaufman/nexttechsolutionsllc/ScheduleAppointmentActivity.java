@@ -6,6 +6,7 @@ import android.content.ContextWrapper;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,7 +64,7 @@ public class ScheduleAppointmentActivity extends Activity {
                 date = dateView.getText().toString();
                 time = timeView.getText().toString();
                 desc = descView.getText().toString();
-                switch (spin.getId()){
+                switch (spin.getId()) {
                     case (0):
                         method = "Call";
                         break;
@@ -78,12 +79,11 @@ public class ScheduleAppointmentActivity extends Activity {
                 }
 
 
-
                 if (name.equals("") || contact.equals("") || date.equals("") || time.equals("") || desc.equals("")) {
                     Toast.makeText(getApplicationContext(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
                 } else {
                     try {
-                        String result = new SendEmailAsync().execute(name, contact, date, time, desc, method).get();
+                        String result = new SendEmailAsync().execute(name, contact, date, time, desc, method, "appointment").get();
                         if (result == "success") {
                             Toast.makeText(getApplicationContext(), "Success! Expect a confirmation within 24 hours!", Toast.LENGTH_LONG).show();
                         } else {

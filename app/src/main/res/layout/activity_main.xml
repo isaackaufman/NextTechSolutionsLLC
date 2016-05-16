@@ -10,6 +10,10 @@
     android:paddingTop="5dp"
     tools:context="solutions.nexttech.isaackaufman.nexttechsolutionsllc.MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -67,11 +71,21 @@
             android:id="@+id/tools_button"
             android:onClick="onDiscoverButtonClicked"
             android:text="Discover Helpful Tools"/>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="#0064c1"
+            android:textColor="#fff"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"
+            android:id="@+id/contact_button"
+            android:onClick="onContactButtonClicked"
+            android:text="Contact Us Now"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@android:color/darker_gray"/>
     </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>

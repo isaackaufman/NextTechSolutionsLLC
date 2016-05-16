@@ -11,8 +11,8 @@ public class SendEmailAsync extends AsyncTask<String, String, String> {
     {
         try {
             GMailSender sender = new GMailSender("nexttechbot@gmail.com", "Westorbit23$");
-            sender.sendMail(uri[0] + " Request for Appt",
-                    "Issue: " + uri[4] + "\n" + uri[5] + ": " + uri[1] + "\nPreferred Date/Time: " + uri[2] + " @ " + uri[3],
+            sender.sendMail(uri[0] + ": Request for " + uri[6],
+                    "Issue: " + uri[4] + "\n" + uri[5] + ": " + uri[1] + (uri[2].length() > 0 ? "\nPreferred Date/Time: " + uri[2] + " @ " + uri[3] : ""),
                     "nexttechbot@gmail.com",
                     "info@nexttech.solutions");
         }

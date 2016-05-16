@@ -34,4 +34,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void onContactButtonClicked(View view) {
+        Intent i = new Intent(MainActivity.this, ContactActivity.class);
+        startActivity(i);
+    }
 }

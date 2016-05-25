@@ -29,7 +29,7 @@ public class ContactActivity extends AppCompatActivity {
 
     public void onEmailButtonClicked(View view) {
         Intent email = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
-        email.putExtra(Intent.EXTRA_EMAIL, "info@nexttech.solutions");
+        email.putExtra(Intent.EXTRA_EMAIL, new String[] { "info@nexttech.solutions" });
         email.setType("message/rfc822");
         startActivity(Intent.createChooser(email, "Send Email"));
     }

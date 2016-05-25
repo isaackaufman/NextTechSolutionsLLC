@@ -31,6 +31,7 @@
             android:src="@drawable/logo1_full_with_llc_1333"/>
 
         <Button
+            android:elevation="2dp"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="#0064c1"
@@ -42,6 +43,7 @@
             android:text="Browse Our Services"
             />
         <Button
+            android:elevation="2dp"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="#0064c1"
@@ -52,6 +54,7 @@
             android:onClick="onScheduleButtonClicked"
             android:text="Schedule an Appointment"/>
         <Button
+            android:elevation="2dp"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="#0064c1"
@@ -62,6 +65,7 @@
             android:onClick="onQuoteButtonClicked"
             android:text="Get a Quote"/>
         <Button
+            android:elevation="2dp"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="#0064c1"
@@ -72,6 +76,7 @@
             android:onClick="onDiscoverButtonClicked"
             android:text="Discover Helpful Tools"/>
         <Button
+            android:elevation="2dp"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="#0064c1"

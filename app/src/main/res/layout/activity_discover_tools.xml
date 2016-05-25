@@ -22,6 +22,17 @@
             android:layout_marginBottom="50dp"
             android:src="@drawable/logo1_full_with_llc_1333"/>
 
+        <TextView
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:text="These tools are 100% trusted by Next Tech Solutions LLC, use them to remedy adware infections, clean up data, check the status of your computer and more."
+            android:id="@+id/textView2"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:maxWidth="345dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="#000" />
+
         <Button
             android:layout_width="300dp"
             android:layout_height="50dp"
